@@ -51,7 +51,6 @@ py bot.py
 ### For Users:
 - Start a conversation with the bot using `/start`
 - Send your question or support request
-- Use `/history` to view your conversation history
 
 ### For Support Team:
 - All user messages appear in dedicated topics in the group
@@ -75,14 +74,11 @@ py bot.py
 - created_at: Message timestamp
 
 ## Technical Requirements
-
-- Python 3.7+
 - python-telegram-bot==20.7
 - python-dotenv==1.0.0
 - aiosqlite==0.19.0
 
 ## Error Handling
-
 - Automatic error logging
 - User-friendly error messages
 - Database connection error handling
@@ -102,11 +98,3 @@ py bot.py
 3. Commit your changes
 4. Push to the branch
 5. Create a Pull Request
-
-## License
-
-MIT License
-
-## Support
-
-If you have any questions or need help with setup, please open an issue in the repository.
