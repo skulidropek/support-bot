@@ -193,23 +193,6 @@ async def get_chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Показывает ID текущего чата"""
     await update.message.reply_text(f"ID этого чата: {update.effective_chat.id}")
 
-async def history(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Показать историю переписки"""
-    if update.message.chat.type == "private":
-        try:
-            messages = await get_chat_history(update.message.from_user.id)
-            if messages:
-                history_text = "История переписки:\n\n"
-                for msg_text, is_support, timestamp in messages:
-                    sender = "Поддержка" if is_support else "Вы"
-                    history_text += f"{timestamp} - {sender}:\n{msg_text}\n\n"
-                await update.message.reply_text(history_text)
-            else:
-                await update.message.reply_text("У вас пока нет сообщений.")
-        except Exception as e:
-            logging.error(f"Error fetching history: {e}")
-            await update.message.reply_text("Не удалось загрузить историю сообщений.")
-
 async def post_init(application: Application):
     """Действия после инициализации бота"""
     await init_db()
@@ -221,8 +204,6 @@ def main():
 
     # Добавляем обработчики
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("chatid", get_chat_id))
-    application.add_handler(CommandHandler("history", history))
     application.add_handler(MessageHandler(
         filters.TEXT & ~filters.COMMAND & filters.ChatType.PRIVATE, 
         handle_user_message
