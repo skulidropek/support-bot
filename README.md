@@ -2,16 +2,6 @@
 
 A Telegram support bot that automatically creates topics in a supergroup for each user and enables dialogue between users and the support team.
 
-## Features
-
-- Automatic topic creation for each user
-- Complete chat history stored in database
-- `/history` command to view message history
-- Simple interface for support team
-- Message formatting support
-- Single topic per user to keep conversations organized
-- Persistent storage of conversations
-
 ## Installation
 
 1. Clone the repository:
